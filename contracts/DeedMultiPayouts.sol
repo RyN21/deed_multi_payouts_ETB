@@ -5,6 +5,11 @@ contract Deed {
   address public lawyer;
   address payable public beneficiary;
   uint public earliest;
+  uint public amount;
+  uint constant public PAYOUTS = 10;
+  // 'constant' allows us to save a bit of gas by storing the variable in the code instead of in the storage of the blockchain
+  // downside of this is we cannot change this variable after deployed. But its, it should not change
+  // constant will use uppercase
 
   constructor(
     address _lawyer,
