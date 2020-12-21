@@ -22,6 +22,7 @@ contract Deed {
       lawyer = _lawyer;
       beneficiary = _beneficiary;
       earliest = now + fromNow;
+      amount = msg.value / PAYOUTS;
     }
 
   function withdraw() public {
