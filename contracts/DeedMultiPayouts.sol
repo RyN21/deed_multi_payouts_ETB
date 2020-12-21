@@ -32,6 +32,7 @@ contract Deed {
 
     uint elligiblePayouts = (now - earliest) / INTERVAL;
     uint duePayouts = elligiblePayouts - paidPayouts;
+    paidPayouts += duePayouts;
     beneficiary.transfer(duePayouts * amount);
   }
 }
