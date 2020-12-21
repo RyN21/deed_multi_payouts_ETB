@@ -38,7 +38,7 @@ contract Deed {
     //   - Add testing condition
     //   - If test is true, value after '?' will be assigned to duePayouts variable
     //   - If test is false, value after ':' will be assigned to duePayouts variable instead
-    duePayouts = duePayouts + paidPayouts <= PAYOUTS ? PAYOUTS - paidPayouts : duePayouts;
+    duePayouts = duePayouts + paidPayouts > PAYOUTS ? PAYOUTS - paidPayouts : duePayouts;
     paidPayouts += duePayouts;
     beneficiary.transfer(duePayouts * amount);
   }
