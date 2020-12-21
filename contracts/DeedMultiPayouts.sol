@@ -29,6 +29,9 @@ contract Deed {
     require(msg.sender == beneficiary, 'Beneficiary only.');
     require(now >= earliest, 'Too early.');
     require(paidPayouts < PAYOUTS);
-    beneficiary.transfer(address(this).balance);
+
+    uint elligiblePayouts = (now - earliest) / INTERVAL;
+
+    // beneficiary.transfer(address(this).balance);
   }
 }
