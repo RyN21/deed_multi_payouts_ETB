@@ -28,7 +28,7 @@ contract Deed {
   function withdraw() public {
     require(msg.sender == beneficiary, 'Beneficiary only.');
     require(now >= earliest, 'Too early.');
-    require(paidPayouts < PAYOUTS);
+    require(paidPayouts < PAYOUTS, 'No payouts left.');
 
     uint elligiblePayouts = (now - earliest) / INTERVAL;
     uint duePayouts = elligiblePayouts - paidPayouts;
