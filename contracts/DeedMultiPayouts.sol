@@ -32,6 +32,13 @@ contract Deed {
 
     uint elligiblePayouts = (now - earliest) / INTERVAL;
     uint duePayouts = elligiblePayouts - paidPayouts;
+    // limit duePayouts to max number of PAYOUTS
+    // ternary operator. Similar to an if statement
+    // adjust duePayouts:
+    //   - Add testing condition
+    //   - If test is true, value after '?' will be assigned to duePayouts variable
+    //   - If test is false, value after ':' will be assigned to duePayouts variable instead
+    duePayouts = duePayouts + paidPayouts <= PAYOUTS ? PAYOUTS - paidPayouts : duePayouts;
     paidPayouts += duePayouts;
     beneficiary.transfer(duePayouts * amount);
   }
