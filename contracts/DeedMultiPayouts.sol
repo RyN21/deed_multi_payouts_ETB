@@ -31,7 +31,6 @@ contract Deed {
     require(paidPayouts < PAYOUTS);
 
     uint elligiblePayouts = (now - earliest) / INTERVAL;
-
-    // beneficiary.transfer(address(this).balance);
+    beneficiary.transfer(elligiblePayouts * amount);
   }
 }
