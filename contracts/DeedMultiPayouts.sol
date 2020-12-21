@@ -26,7 +26,7 @@ contract Deed {
     }
 
   function withdraw() public {
-    require(msg.sender == lawyer, 'Lawyer only.');
+    require(msg.sender == beneficiary, 'Beneficiary only.');
     require(now >= earliest, 'Too early.');
     beneficiary.transfer(address(this).balance);
   }
