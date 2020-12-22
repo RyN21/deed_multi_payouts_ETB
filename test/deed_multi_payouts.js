@@ -10,7 +10,7 @@ contract('DeedMultiPayouts', (accounts) => {
     for(let i = 0; i < 4; i++) {
       const balanceBefore = web3.utils.toBN(await web3.eth.getBalance(accounts[1]));
       await new Promise(resolve => setTimeout(resolve, 1000));
-      deedMultiPayouts.withdraw({from: accounts[1]});
+      await deedMultiPayouts.withdraw({from: accounts[1]});
       const balanceAfter = web3.utils.toBN(await web3.eth.getBalance(accounts[1]));
       assert(balanceAfter.sub(balanceBefore).toNumber() === 25);
     }
@@ -27,7 +27,7 @@ contract('DeedMultiPayouts', (accounts) => {
     for(let i = 0; i < 2; i++) {
       const balanceBefore = web3.utils.toBN(await web3.eth.getBalance(accounts[1]));
       await new Promise(resolve => setTimeout(resolve, 2000));
-      deedMultiPayouts.withdraw({from: accounts[1]});
+      await deedMultiPayouts.withdraw({from: accounts[1]});
       const balanceAfter = web3.utils.toBN(await web3.eth.getBalance(accounts[1]));
       assert(balanceAfter.sub(balanceBefore).toNumber() === 50);
     }
