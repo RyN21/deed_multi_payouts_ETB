@@ -1,4 +1,4 @@
-const deedMultiPayouts = artifacts.require('DeedMultiPayouts');
+const DeedMultiPayouts = artifacts.require('DeedMultiPayouts');
 
 contract('DeedMultiPayouts', (accounts) => {
   let deedMultiPayouts = null;

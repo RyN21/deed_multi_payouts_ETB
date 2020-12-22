@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
 
-contract Deed {
+contract DeedMultiPayouts {
 
   address public lawyer;
   address payable public beneficiary;
