@@ -32,6 +32,15 @@ contract('DeedMultiPayouts', (accounts) => {
     }
   });
 
+  it('Should NOT withdraw if no payout is left', async () => {
+    try {
+      await deedMultiPayouts.withdraw({from: accounts[1]});
+    } catch (e) {
+      assert(e.message.includes('No payout left.'))
+      return;
+    }
+  })
+
   it('Should NOT withdraw if too early', async () => {
     const deedMultiPayouts = await DeedMultiPayouts.new(
       accounts[0],
@@ -47,15 +56,6 @@ contract('DeedMultiPayouts', (accounts) => {
     }
     assert(false);
   });
-
-  it('Should NOT withdraw if no payout is left', async () => {
-    try {
-      await deedMultiPayouts.withdraw({from: accounts[1]});
-    } catch (e) {
-      assert(e.message.includes('No payout left.'))
-      return;
-    }
-  })
 
   it('Should NOT withdraw if caller is not beneficiary', async () => {
     const deedMultiPayouts = await DeedMultiPayouts.new(
