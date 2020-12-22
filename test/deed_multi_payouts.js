@@ -15,8 +15,9 @@ contract('DeedMultiPayouts', (accounts) => {
     );
     try {
       await deedMultiPayouts.withdraw({from: accounts[1]});
-    } catch(e) {
+    } catch (e) {
       assert(e.message.includes('Too early.'));
+      return;
     }
     assert(false);
   });
@@ -30,8 +31,9 @@ contract('DeedMultiPayouts', (accounts) => {
     );
     try {
       await deedMultiPayouts.withdraw({from: accounts[0]});
-    } catch(e) {
+    } catch (e) {
       assert(e.message.includes('Beneficiary only.'));
+      return;
     }
     assert(false);
   });
