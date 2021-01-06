@@ -39,6 +39,7 @@ contract('DeedMultiPayouts', (accounts) => {
       assert(e.message.includes('No payout left.'))
       return;
     }
+    assert(false);
   })
 
   it('Should NOT withdraw if too early', async () => {
